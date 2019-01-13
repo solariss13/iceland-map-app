@@ -1,0 +1,9 @@
+svg {
+    fill: rgb(71,93,92);
+    height:auto;
+    width: 50% ;
+    stroke:"#ffffff" ;
+    stroke-linecap:"round" ;
+    stroke-linejoin:"round" ;
+    stroke-width:"1" ;
+}
