@@ -11,3 +11,8 @@ h1 {
     font-size: large;
     font-weight: lighter;
 }
+
+.container {
+    display: grid;
+    grid-template-rows: auto;
+}
