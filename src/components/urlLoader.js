@@ -3,7 +3,7 @@ import React from 'react';
 const urlLoader = () => {
     return (
       <div>
-        {/* <iframe
+        <iframe
           title="map"
           width="600"
           height="450"
@@ -11,8 +11,7 @@ const urlLoader = () => {
           src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBKzcVWQTY-pP1RngW1C0oREXdX84H9cJM
             &q=Space+Needle,Seattle+WA" 
           allowFullScreen>
-        </iframe> */}
-        <h1>udalo sie</h1>
+        </iframe>
       </div>)
     }
 export default urlLoader;

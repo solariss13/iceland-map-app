@@ -27,6 +27,7 @@ class HomePage extends Component {
   render(){
 		return (
 			<div>
+				
 				<Map 
 					regionOnClick={this.regionOnClick}
 					hoverOver={this.hoverOver}
