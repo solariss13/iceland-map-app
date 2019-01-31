@@ -1,14 +1,17 @@
 import React from 'react';
-import {MapPaths} from './MapPaths';
-import './Map.css';
+import {SvgMapPaths} from './SvgMapPaths';
+import './SvgMap.css';
 import { Link } from 'react-router-dom';
 
 
-const Map = (props) => {
+const SvgMap = (props) => {
 
-		 const pathComponent = MapPaths.map(({d, id}) => {
+		 const pathComponent = SvgMapPaths.map(({d, id}) => {
 			return (
-				<Link to={`/${id}`}>
+				<Link to={{
+					pathname: `/region/${id}`,
+					state: id
+				}}>
 					<path 
 						className='mapPaths'
 						d={d} 
@@ -33,4 +36,4 @@ const Map = (props) => {
 		);
 }
 
-export default Map;
+export default SvgMap;

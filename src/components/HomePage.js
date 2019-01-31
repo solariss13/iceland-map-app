@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Map from './Map';
+import SvgMap from './SvgMap';
+
 
 class HomePage extends Component {
   state={
@@ -28,7 +29,7 @@ class HomePage extends Component {
 		return (
 			<div>
 				
-				<Map 
+				<SvgMap 
 					regionOnClick={this.regionOnClick}
 					hoverOver={this.hoverOver}
 					hoverOut={this.hoverOut}
