@@ -8,10 +8,7 @@ const SvgMap = (props) => {
 
 		 const pathComponent = SvgMapPaths.map(({d, id}) => {
 			return (
-				<Link to={{
-					pathname: `/region/${id}`,
-					state: id
-				}}>
+				<Link to={`/region/${id}`} key={id}>
 					<path 
 						className='mapPaths'
 						d={d} 
