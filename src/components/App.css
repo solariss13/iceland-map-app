@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body{
     text-align: center;
     background-color: rgba(99, 196, 192, 0.7);
@@ -15,4 +23,39 @@ h1 {
 .container {
     display: grid;
     grid-template-rows: auto;
+}
+
+.mapPaths {
+    fill: rgb(71,93,92);
+    stroke:"#ffffff" ;
+    stroke-linecap:"round" ;
+    stroke-linejoin:"round" ;
+    stroke-width:"1" ;
+}
+
+svg {
+    height:auto;
+    width: 60% ;
+    margin-top: 10vh;
+}
+
+img {
+    height: 80px;
+    width: 80px;
+}
+
+img:hover{
+    transform: scale(3);
+    
+}
+
+.images{
+    display: grid;
+    grid-template-columns: 80px 80px 80px;
+    grid-template-rows:  80px 80px;
+    grid-gap: 10px;
+}
+
+.selectedPlace{
+    grid-column: 1/4;
 }

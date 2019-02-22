@@ -3,15 +3,14 @@ import SvgMap from './SvgMap';
 
 
 class HomePage extends Component {
-  state={
+ 
+	state={
 	  currentRegion: '',
 	  clickedRegion: '',
 	}
 
-
  regionOnClick = (e) => {
   this.setState({ clickedRegion: e.target.id });
-  
  }
 
  hoverOver = (e) => {

@@ -1,6 +1,5 @@
 import React from 'react';
 import {SvgMapPaths} from './SvgMapPaths';
-import './SvgMap.css';
 import { Link } from 'react-router-dom';
 
 

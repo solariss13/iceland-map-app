@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import './App.css';
 import RegionDetailsLoader from './RegionDetailsLoader';
 import HomePage from './HomePage';
+import './App.css';
 
 
 
