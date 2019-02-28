@@ -1,19 +1,35 @@
 import React from 'react';
 
 class Marker extends React.Component {
-
 	renderMarker() {
-		let {
+		const {
 			map, 
 			google, 
 			markers 
 		} = this.props;
 
-		markers.map(marker => {
-			return new google.maps.Marker({
+    //creating new markers
+		markers.forEach(marker => {
+      let newMarker = this.marker = new google.maps.Marker({
 				map: map,
-				position: marker.position
-			});
+        position: marker.position,
+        name: marker.name,
+      });
+
+      //adding events to new markers
+      newMarker.addListener('click', () => {
+        //setting marker in the map center 
+        if(map.getZoom() < 10){
+          map.setZoom(10);
+        }
+      
+        map.panTo(newMarker.getPosition())
+        
+        //invoke onCilck to pass props to RegionsDetailsLoader         
+        this.props.onClick(newMarker);
+      });
+      
+      return newMarker;
 		});
 	}
 

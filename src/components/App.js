@@ -8,9 +8,9 @@ import './App.css';
 
 class App extends Component {
 
-	render(){
+	render() {
 		return (
-			<div className="container" >
+			<div className="container">
 				<BrowserRouter>
 					<div>
 						<Route path={'/'} exact component={HomePage} />

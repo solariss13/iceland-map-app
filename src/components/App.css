@@ -2,60 +2,100 @@
 
 
 html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body{
-    text-align: center;
-    background-color: rgba(99, 196, 192, 0.7);
+  text-align: center;
+  background-color: rgba(99, 196, 192, 0.7);
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-style: normal;
-    font-size: large;
-    font-weight: lighter;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: large;
+  font-weight: lighter;
 }
 
 .container {
-    display: grid;
-    grid-template-rows: auto;
+  display: grid;
+  grid-template-rows: auto;
 }
 
 .mapPaths {
-    fill: rgb(71,93,92);
-    stroke:"#ffffff" ;
-    stroke-linecap:"round" ;
-    stroke-linejoin:"round" ;
-    stroke-width:"1" ;
+  fill: rgb(71,93,92);
+  stroke:"#ffffff" ;
+  stroke-linecap:"round" ;
+  stroke-linejoin:"round" ;
+  stroke-width:"1" ;
 }
 
 svg {
-    height:auto;
-    width: 60% ;
-    margin-top: 10vh;
-}
-
-img {
-    height: 80px;
-    width: 80px;
-}
-
-img:hover{
-    transform: scale(3);
-    
-}
-
-.images{
-    display: grid;
-    grid-template-columns: 80px 80px 80px;
-    grid-template-rows:  80px 80px;
-    grid-gap: 10px;
+  height:auto;
+  width: 60% ;
+  margin-top: 10vh;
 }
 
 .selectedPlace{
-    grid-column: 1/4;
+  grid-column: 1/4;
 }
+
+/* infoWindow */
+img {
+  height: 80px;
+  width: 100%;
+  object-fit: fill;
+  transition: all .5s ease-in-out;
+  
+}
+
+img:hover{
+  
+  /* position:absolute;
+  top:-10px;
+  left:-5px; */
+  transform: scale(3);
+  
+}
+
+.imgWrapper{
+  display: grid;
+  grid-template-columns: 80px 80px 80px;
+  grid-template-rows:  40px 80px 80px;
+  grid-gap: 5px;
+  overflow: hidden;
+  align-items: center;
+}
+
+.markerName{
+  grid-column: 1/4;
+  grid-row: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: medium;
+  font-weight: lighter;
+}
+/* 
+.loadingWrapper{
+  display: grid;
+  grid-column: auto;
+  grid-row: auto auto;
+  align-items: center;
+}
+
+.loadingMarker{
+  grid-column: 1/2;
+  grid-row: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: medium;
+  font-weight: lighter;
+}
+
+.loading{
+  grid-column: 3/4;
+  grid-row: 2; */
+/* } */

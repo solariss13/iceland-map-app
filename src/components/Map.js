@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import RegionsDetails from './RegionsDetails';
 import './Map.css'
 
-export class Map extends React.Component {
+ class Map extends React.Component {
 	state={
 		regionInfo: null
 	}
@@ -21,10 +21,7 @@ export class Map extends React.Component {
 	}
 
 	componentWillMount(){
-		const regionInfo = RegionsDetails.find((element)=>{
-			if(element.region===this.props.region)
-				return element;
-		});
+		const regionInfo = RegionsDetails.find((element) => element.region === this.props.region);
 
 		this.setState({
 			regionInfo: regionInfo
@@ -35,20 +32,20 @@ export class Map extends React.Component {
 		this.loadMap();
   }
 
-	componentDidUpdate(prevProps, prevState) {
+	componentDidUpdate(prevProps) {
 		if ((prevProps.google !== this.props.google) ) {
 			this.loadMap();
 		}
 	}
 	
 	loadMap() {
+    
 		if (this.props && this.props.google) {
 			
 			const region = this.state.regionInfo;
 			const {google} = this.props;
 			const node = ReactDOM.findDOMNode(this.refs.map);
 
-			//this.map!!!
       this.map = new google.maps.Map(node, {
 				zoom: region.zoom,
 				minZoom: region.minZoom, 
@@ -64,14 +61,20 @@ export class Map extends React.Component {
 				region.bound2
 			);
 	
-			// Listen for the dragend event
+			// listen for the dragend event
 			google.maps.event.addListener( this.map, 'dragend', ()=> {
 				//if dragend is outside the allowed boundaries
 				if (!(allowedBounds.contains(this.map.getCenter()))) {
 					//limiting panning on the map to the region's bounds
 					this.map.panTo(region.center);
 				} 
-			});
+      });
+      
+      // listen for map click event
+      google.maps.event.addListener( this.map, 'click', () => {
+        this.props.onClick();
+      })
+
 		}
 	}
 

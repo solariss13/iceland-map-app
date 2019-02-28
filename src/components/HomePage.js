@@ -24,7 +24,7 @@ class HomePage extends Component {
  }
 
 
-  render(){
+  render() {
 		return (
 			<div>
 				
