@@ -21,11 +21,25 @@ class InfoWindow extends React.Component {
 
     if(images.length === 0){
       this.infowindow = new google.maps.InfoWindow({
-        content: `<div> <div class="markerName"> ${marker.name} </div>  <div>Loading...</div> </div>`
+        content: 
+          `<div>
+            <div class="markerName"> 
+              ${marker.name} 
+            </div>  
+            <div>
+              Loading...
+            </div> 
+          </div>`
       });
     } else {
       this.infowindow = new google.maps.InfoWindow({
-        content: `<div class="imgWrapper"> <div class="markerName"> ${marker.name} </div>  ${images} </div>`
+        content: 
+          `<div class="imgWrapper"> 
+            <div class="markerName"> 
+              ${marker.name} 
+            </div>  
+            ${images} 
+          </div>`
       });
     }
 

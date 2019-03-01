@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import RegionsDetails from './RegionsDetails';
-import './Map.css'
+
 
  class Map extends React.Component {
 	state={
@@ -81,14 +81,14 @@ import './Map.css'
 	render() {
 		const style = {
       width: '90vw',
-      height: '80vh',
+      height: '85vh',
       marginLeft: '5vw',
       marginRight: '5vw',
       position: 'absolute',
-      top: '10vh'
+      top: '8vh'
     }
 		return (
-				<div ref='map' style={style}>
+				<div className="googleMap" ref='map' style={style}>
 					{this.renderChildren()}
 				</div>
 		)

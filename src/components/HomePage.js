@@ -26,18 +26,19 @@ class HomePage extends Component {
 
   render() {
 		return (
-			<div>
-				
-				<SvgMap 
-					regionOnClick={this.regionOnClick}
-					hoverOver={this.hoverOver}
-					hoverOut={this.hoverOut}
-				/>
-		
-				<h1>
-					{this.state.currentRegion}
-				</h1>  
-				
+			<div className="containerHP">
+        <div className="regionName">
+          <h1>
+            {this.state.currentRegion}
+          </h1>
+        </div>
+				<div>
+          <SvgMap 
+            regionOnClick={this.regionOnClick}
+            hoverOver={this.hoverOver}
+            hoverOut={this.hoverOut}
+          />
+        </div>
 			</div>
 		)
   }

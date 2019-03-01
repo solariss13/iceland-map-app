@@ -3,9 +3,6 @@ import Map from './Map';
 import Marker from './Marker';
 import InfoWindow from './InfoWindow';
 import { GoogleApiWrapper } from 'google-maps-react';
-// import { ClipLoader } from 'react-spinners';
-// import { memoize } from 'lodash';
-// import RegionsDetails from './RegionsDetails';
 import axios from 'axios';
 
 
@@ -47,7 +44,7 @@ class RegionsDetailsLoader extends React.Component {
     
     const images = response.data.items;
     const imagesToStr = images.map(element => { 
-      return `<div class="images"><img alt="${element.title}" src="${element.link}" /></div>`
+      return `<div><a target="_blank" rel="noopener noreferrer" href="${element.link}"><img alt="${element.title}" src="${element.link}" /></a></div>`
     });
     const strImages = imagesToStr.join('');
     this.setState({strImages: strImages});
