@@ -1,3 +1,5 @@
+**PLease note: back-end side still in development**
+
 I'm creating an interactive map of Iceland!
 
 The built process of the project can be separated in three parts:
