@@ -10,6 +10,7 @@ class Marker extends React.Component {
 
     //creating new markers
 		markers.forEach(marker => {
+      // console.log(marker.name, marker.position)
       let newMarker = this.marker = new google.maps.Marker({
 				map: map,
         position: marker.position,
@@ -33,8 +34,9 @@ class Marker extends React.Component {
 		});
 	}
 
+
 	render(){
-		this.renderMarker()
+	  this.renderMarker()
 		return null;
 	}
 }

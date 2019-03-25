@@ -1,60 +1,69 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import RegionsDetails from './RegionsDetails';
-
 
  class Map extends React.Component {
 	state={
-		regionInfo: null
+    regionInfo: null,
+    count: 0
 	}
 
 	renderChildren() {
-		const {children} = this.props;
 
-		return React.Children.map(children, child => {
-			return React.cloneElement(child, {
-				map: this.map,
-				google: this.props.google,
-				markers: this.state.regionInfo.markers
-			});
-		})
-	}
+    if(this.state.regionInfo !== null && this.map !== undefined) {
+      
+      const {children} = this.props;
 
-	componentWillMount(){
-		const regionInfo = RegionsDetails.find((element) => element.region === this.props.region);
-
-		this.setState({
-			regionInfo: regionInfo
-		})
+      return React.Children.map(children, child => {
+        return React.cloneElement(child, {
+          map: this.map,
+          google: this.props.google,
+          markers: this.state.regionInfo
+        });
+      })
+    }
 	}
 
 	componentDidMount() {
-		this.loadMap();
+    const {region} = this.props
+
+    if (region){
+      fetch(`http://localhost:3001/region/${region}`, {
+        params: JSON.stringify({
+          region: region
+        })
+      })
+      .then(response => response.json())
+      .then(regionInfo => {
+        this.setState({ regionInfo: regionInfo })
+      })
+    }
   }
 
-	componentDidUpdate(prevProps) {
-		if ((prevProps.google !== this.props.google) ) {
-			this.loadMap();
-		}
+	componentDidUpdate(prevState) {
+    if ((prevState.regionInfo !== this.state.regionInfo)) {
+      if(this.state.count < 1) {
+        this.loadMap();
+        this.setState({count: 1})
+      }
+    }
 	}
 	
 	loadMap() {
-    
-		if (this.props && this.props.google) {
+		if(this.state.regionInfo !== null && this.props.google) {
 			
-			const region = this.state.regionInfo;
+			const region = this.state.regionInfo[0];
 			const {google} = this.props;
 			const node = ReactDOM.findDOMNode(this.refs.map);
 
       this.map = new google.maps.Map(node, {
 				zoom: region.zoom,
-				minZoom: region.minZoom, 
-				maxZoom: region.maxZoom,
+				minZoom: region.minzoom, 
+				maxZoom: region.maxzoom,
 				center: region.center,
-				mapTypeId: 'hybrid',
+				mapTypeId: 'hybrid'
 			});
-
-			this.forceUpdate()
+      
+      this.forceUpdate()
 
 			const allowedBounds = new google.maps.LatLngBounds(
 				region.bound1,
@@ -74,7 +83,6 @@ import RegionsDetails from './RegionsDetails';
       google.maps.event.addListener( this.map, 'click', () => {
         this.props.onClick();
       })
-
 		}
 	}
 
@@ -88,9 +96,9 @@ import RegionsDetails from './RegionsDetails';
       top: '8vh'
     }
 		return (
-				<div className="googleMap" ref='map' style={style}>
-					{this.renderChildren()}
-				</div>
+			<div className="googleMap" ref='map' style={style}>
+        {this.renderChildren()}
+      </div>
 		)
 	}
 }

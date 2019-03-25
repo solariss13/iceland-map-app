@@ -8,17 +8,9 @@ import axios from 'axios';
 
 class RegionsDetailsLoader extends React.Component {
   state = {
-    currentRegion: null,
     showingInfoWindow: false,
     activeMarker: {},
     strImages: []
-  }
-
-  componentWillMount(){
-    const currentRegion = this.props.match.params.handle;
-    this.setState({
-      currentRegion: currentRegion,
-    })
   }
 
   onMapClick= () => {
@@ -51,13 +43,14 @@ class RegionsDetailsLoader extends React.Component {
   })
 
   render() {
+    const currentRegion = this.props.match.params.handle;
     return (
       <div>
-        <h1>{this.state.currentRegion}</h1>
+        <h1>{currentRegion}</h1>
         <Map 
           onClick={this.onMapClick}
           google={this.props.google} 
-          region={this.state.currentRegion}
+          region={currentRegion}
         >
           <Marker 
             onClick={this.onMarkerClick}

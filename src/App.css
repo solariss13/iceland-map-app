@@ -119,7 +119,7 @@ img:hover{
     height: 200px;
     display: grid;
     grid-template-columns: 100px ;
-    grid-template-rows:  40px 80px 80px 80px 80px 80px 80px;
+    grid-template-rows:  60px 80px 80px 80px 80px 80px 80px;
     grid-gap: 5px;
     overflow: scroll;
     align-items: center;

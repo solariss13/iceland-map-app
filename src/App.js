@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import RegionDetailsLoader from './RegionDetailsLoader';
-import HomePage from './HomePage';
+import RegionDetailsLoader from './components/RegionDetailsLoader';
+import HomePage from './components/HomePage';
 import './App.css';
 
 
