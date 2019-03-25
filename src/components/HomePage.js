@@ -28,7 +28,7 @@ class HomePage extends Component {
 		return (
 			<div className="containerHP">
         <div className="regionName">
-          <h1>
+          <h1 className="text">
             {this.state.currentRegion}
           </h1>
         </div>
