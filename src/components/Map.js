@@ -27,7 +27,7 @@ import ReactDOM from 'react-dom';
     const {region} = this.props
 
     if (region){
-      fetch(`http://localhost:3001/region/${region}`, {
+      fetch(`https://iceland-map-app-api.herokuapp.com/region/${region}`, {
         params: JSON.stringify({
           region: region
         })

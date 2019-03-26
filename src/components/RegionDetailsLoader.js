@@ -46,7 +46,6 @@ class RegionsDetailsLoader extends React.Component {
     const currentRegion = this.props.match.params.handle;
     return (
       <div>
-        {/* <div className="btn"><button className="f4 grow w-10">Go back</button></div> */}
         <h1>{currentRegion}</h1>
         <Map 
           onClick={this.onMapClick}
