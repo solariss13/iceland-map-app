@@ -47,29 +47,60 @@ svg {
   stroke-width:"1" ;
 }
 
+.containerMap {
+  height: 100vh;
+  display: grid;
+  align-content: space-between;
+}
+
+.btn-go-back, .btn-add-marker {
+  height: auto;
+  width: auto;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  z-index: 1;
+}
+
+.btn-go-back:hover, .btn-add-marker:hover  {
+  background-color:rgb(186, 186, 186);
+}
+
+.btn-go-back {
+  border-radius: 5px 0 0 5px;
+}
+.btn-add-marker {
+  border-radius: 0 5px 5px 0;
+}
+
 /* Google map */
 .googleMap {
   box-shadow: 0px 10px 7px 10px rgb(104, 170, 167);
   border-radius: 25px;
+  position: initial;
 }
 /* infoWindow */
 img {
   height: 80px;
   width: 100%;
   object-fit: cover;
-  transition: all .5s ease-in-out;
   border-radius: 5px;
   overflow: visible;
 }
 
+
 img:hover{
-  transform: scale(2);
+  border: 2px solid rgb(34, 147, 94);
 }
 
 .imgWrapper{
+  height: 240px;
+  width: 260px;
   display: grid;
-  grid-template-columns: 80px 80px 80px;
-  grid-template-rows:  40px 80px 80px;
+  grid-template-columns: 81px 81px 81px;
+  grid-template-rows:  40px 81px 81px;
   grid-gap: 5px;
   overflow: hidden;
   align-items: center;
@@ -89,6 +120,7 @@ img:hover{
   h1 {
     font-size: 1.3rem;
   }
+
   /* infoWindow */
 
   .imgWrapper{

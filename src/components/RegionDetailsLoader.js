@@ -2,8 +2,10 @@ import React from 'react';
 import Map from './Map';
 import Marker from './Marker';
 import InfoWindow from './InfoWindow';
+// import AddMarkerForm from './AddMarkerForm';
 import { GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
+
 
 
 class RegionsDetailsLoader extends React.Component {
@@ -45,22 +47,30 @@ class RegionsDetailsLoader extends React.Component {
   render() {
     const currentRegion = this.props.match.params.handle;
     return (
-      <div>
-        <h1>{currentRegion}</h1>
-        <Map 
-          onClick={this.onMapClick}
-          google={this.props.google} 
-          region={currentRegion}
-        >
-          <Marker 
-            onClick={this.onMarkerClick}
-          />
-          <InfoWindow
-            images={this.state.strImages}
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
-          />
-        </Map>
+      <div className="containerMap" >
+        <div className="item1">
+          <h1>{currentRegion}</h1>
+        </div>
+        <div className="item2">
+          <Map 
+            onClick={this.onMapClick}
+            google={this.props.google} 
+            region={currentRegion}
+          >
+            <Marker 
+              onClick={this.onMarkerClick}
+            />
+            <InfoWindow
+              images={this.state.strImages}
+              marker={this.state.activeMarker}
+              visible={this.state.showingInfoWindow}
+            />
+          </Map>
+        </div>
+          <div className="item3">
+            <button className="btn-go-back">Go back</button>
+            <button className="btn-add-marker">Add marker</button>
+          </div>
       </div>
     )
   }
