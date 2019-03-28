@@ -1,4 +1,4 @@
-**All of the goals achieved! ** 
+**All of the goals achieved!** 
 
 App description:
 
