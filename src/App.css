@@ -122,7 +122,7 @@ img:hover{
   /* infoWindow */
 
   .imgWrapper{
-    height: 240px;
+    height: 280px;
     width: 170px;
     display: grid;
     grid-template-columns: 80px 80px;
