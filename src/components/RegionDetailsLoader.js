@@ -4,6 +4,7 @@ import Marker from './Marker';
 import InfoWindow from './InfoWindow';
 import { GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
+import { error } from 'util';
 
 
 
@@ -27,7 +28,7 @@ class RegionsDetailsLoader extends React.Component {
       })
     })
     .then( response => response.json())
-    .then( res => 'success' ? document.location.reload(true) : console.log('cos nie tak'))
+    .then( res => 'success' ? document.location.reload(true) : console.log(error))
     .catch(err => console.log(err));
   }
 
@@ -42,8 +43,7 @@ class RegionsDetailsLoader extends React.Component {
       if(newMarkerName) {
         this.createNewMarker(currentRegion, newMarkerPosition, newMarkerName)
       }
-    }
-    else if (this.state.showingInfoWindow) {
+    } else if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: {}
@@ -80,8 +80,10 @@ class RegionsDetailsLoader extends React.Component {
       showingInfoWindow: false,
       addNewMarker: true
      })
-     setTimeout(() => {alert('click on the map to point the location of new marker')}, 0);
-    
+     
+    setTimeout(() => {
+      alert('Click on the map to point the location of new marker')
+    }, 0);
   }
 
   render() {
