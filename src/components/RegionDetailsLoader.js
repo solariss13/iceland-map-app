@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './Map';
 import Marker from './Marker';
 import InfoWindow from './InfoWindow';
-// import AddMarkerForm from './AddMarkerForm';
 import { GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
 
@@ -17,9 +16,19 @@ class RegionsDetailsLoader extends React.Component {
     newMarkerPosition: {}
   }
 
-  createNewMarker = () => {
-
-    
+  createNewMarker = (currentRegion, newMarkerPosition, newMarkerName) => {
+    fetch(`https://iceland-map-app-api.herokuapp.com/region/${currentRegion}`, {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name: newMarkerName,
+        region: currentRegion,
+        position: newMarkerPosition
+      })
+    })
+    .then( response => response.json())
+    .then( res => 'success' ? document.location.reload(true) : console.log('cos nie tak'))
+    .catch(err => console.log(err));
   }
 
   onMapClick = (lat,lng) => {
@@ -29,13 +38,9 @@ class RegionsDetailsLoader extends React.Component {
       const currentRegion = this.props.match.params.handle
       const newMarkerPosition = {lat: lat, lng: lng}
       const newMarkerName = prompt('Enter the name of the new marker:')
+
       if(newMarkerName) {
         this.createNewMarker(currentRegion, newMarkerPosition, newMarkerName)
-        // this.setState({ 
-        //   newMarkerPosition: {lat: lat, lng: lng},
-        //   newMarkerName: markerName
-        // })
-        // console.log(this.state)
       }
     }
     else if (this.state.showingInfoWindow) {
@@ -83,10 +88,10 @@ class RegionsDetailsLoader extends React.Component {
     const currentRegion = this.props.match.params.handle;
     return (
       <div className="containerMap" >
-        <div className="item1">
+        <div>
           <h1>{currentRegion}</h1>
         </div>
-        <div className="item2">
+        <div>
           <Map 
             onClick={this.onMapClick}
             google={this.props.google} 
@@ -102,9 +107,7 @@ class RegionsDetailsLoader extends React.Component {
             />
           </Map>
         </div>
-        {/* {this.state.addNewMarker ? <AddMarkerForm /> : null} */}
-
-        <div className="item3">
+        <div>
           <button 
             className="btn-go-back"
             onClick={this.onClickGoBackBtn}
