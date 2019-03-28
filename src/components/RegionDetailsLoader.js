@@ -72,7 +72,7 @@ class RegionsDetailsLoader extends React.Component {
   })
 
   onClickGoBackBtn = () => {
-    window.location.href = "http://localhost:3000/";
+    window.location.href = "https://iceland-map-app.herokuapp.com/";
   }
 
   onClickAddMarkerBtn = () => {
