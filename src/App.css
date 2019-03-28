@@ -122,6 +122,8 @@ img:hover{
   /* infoWindow */
 
   .imgWrapper{
+    height: 240px;
+    width: 170px;
     display: grid;
     grid-template-columns: 80px 80px;
     grid-template-rows:  40px 80px 80px 80px;
@@ -153,6 +155,7 @@ img:hover{
 
   .imgWrapper{
     height: 200px;
+    width: 100px;
     display: grid;
     grid-template-columns: 100px ;
     grid-template-rows:  60px 80px 80px 80px 80px 80px 80px;
