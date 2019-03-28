@@ -49,7 +49,6 @@ svg {
   height: 100vh;
   display: grid;
   align-content: space-between;
-  justify-content: center;
 }
 
 .btn-go-back, .btn-add-marker {
