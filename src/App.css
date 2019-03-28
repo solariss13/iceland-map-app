@@ -24,9 +24,7 @@ h1 {
 .containerHP{
   display: grid;
   grid-template-rows:  10vh 80vh;
-  /* grid-gap: 2vh; */
   align-items: center;
-  /* overflow: hidden; */
 }
 
 .regionName{
@@ -71,6 +69,7 @@ svg {
 .btn-go-back {
   border-radius: 5px 0 0 5px;
 }
+
 .btn-add-marker {
   border-radius: 0 5px 5px 0;
 }
@@ -89,7 +88,6 @@ img {
   border-radius: 5px;
   overflow: visible;
 }
-
 
 img:hover{
   border: 2px solid rgb(34, 147, 94);
@@ -141,17 +139,17 @@ img:hover{
   h1 {
     font-size: 1.3rem;
   }
-  /* infoWindow */
+
   img {
     height: 80px;
     width: 80px;
     object-fit: fill;
-    transition: all .5s ease-in-out;
+    overflow: visible;
   }
-
+  
   img:hover{
-    transform: scale(2);
-  }
+    border: 2px solid rgb(34, 147, 94);
+  } 
 
   .imgWrapper{
     height: 200px;
