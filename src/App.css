@@ -97,7 +97,7 @@ img:hover{
   height: 240px;
   width: 260px;
   display: grid;
-  grid-template-columns: 81px 81px 81px;
+  grid-template-columns: 80px 80px 80px;
   grid-template-rows:  40px 81px 81px;
   grid-gap: 5px;
   overflow: hidden;
