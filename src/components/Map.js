@@ -80,8 +80,8 @@ import ReactDOM from 'react-dom';
       });
       
       // listen for map click event
-      google.maps.event.addListener( this.map, 'click', () => {
-        this.props.onClick();
+      google.maps.event.addListener( this.map, 'click', (e) => {
+        this.props.onClick(e.latLng.lat(), e.latLng.lng());
       })
 		}
 	}

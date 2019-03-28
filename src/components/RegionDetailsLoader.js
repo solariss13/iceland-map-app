@@ -12,11 +12,33 @@ class RegionsDetailsLoader extends React.Component {
   state = {
     showingInfoWindow: false,
     activeMarker: {},
-    strImages: []
+    strImages: [],
+    addNewMarker: false,
+    newMarkerPosition: {}
   }
 
-  onMapClick= () => {
-    if (this.state.showingInfoWindow) {
+  createNewMarker = () => {
+
+    
+  }
+
+  onMapClick = (lat,lng) => {
+    if(this.state.addNewMarker) {
+      this.setState({ addNewMarker: false})
+      console.log('weszlo')
+      const currentRegion = this.props.match.params.handle
+      const newMarkerPosition = {lat: lat, lng: lng}
+      const newMarkerName = prompt('Enter the name of the new marker:')
+      if(newMarkerName) {
+        this.createNewMarker(currentRegion, newMarkerPosition, newMarkerName)
+        // this.setState({ 
+        //   newMarkerPosition: {lat: lat, lng: lng},
+        //   newMarkerName: markerName
+        // })
+        // console.log(this.state)
+      }
+    }
+    else if (this.state.showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: {}
@@ -44,6 +66,19 @@ class RegionsDetailsLoader extends React.Component {
     this.setState({strImages: strImages});
   })
 
+  onClickGoBackBtn = () => {
+    window.location.href = "http://localhost:3000/";
+  }
+
+  onClickAddMarkerBtn = () => {
+    this.setState({ 
+      showingInfoWindow: false,
+      addNewMarker: true
+     })
+     setTimeout(() => {alert('click on the map to point the location of new marker')}, 0);
+    
+  }
+
   render() {
     const currentRegion = this.props.match.params.handle;
     return (
@@ -67,10 +102,22 @@ class RegionsDetailsLoader extends React.Component {
             />
           </Map>
         </div>
-          <div className="item3">
-            <button className="btn-go-back">Go back</button>
-            <button className="btn-add-marker">Add marker</button>
-          </div>
+        {/* {this.state.addNewMarker ? <AddMarkerForm /> : null} */}
+
+        <div className="item3">
+          <button 
+            className="btn-go-back"
+            onClick={this.onClickGoBackBtn}
+          >
+            Go back
+          </button>
+          <button 
+            className="btn-add-marker"
+            onClick={this.onClickAddMarkerBtn}
+          >
+            Add marker
+          </button>
+        </div>
       </div>
     )
   }
