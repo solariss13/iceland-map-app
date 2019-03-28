@@ -42,13 +42,14 @@ svg {
   stroke: #ffffff ;
   stroke-linecap: round ;
   stroke-linejoin: round ;
-  stroke-width: 1 ;
+  stroke-width: 0.5 ;
 }
 
 .containerMap {
   height: 100vh;
   display: grid;
   align-content: space-between;
+  justify-content: center;
 }
 
 .btn-go-back, .btn-add-marker {
