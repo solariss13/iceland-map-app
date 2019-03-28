@@ -114,6 +114,11 @@ img:hover{
 }
 
 /* for screens smaller than width = 520px */
+@media (max-width: 1100px) {
+  svg {
+    width: 75% ;
+  }
+}
 @media (max-width: 520px) {
   h1 {
     font-size: 1.3rem;
@@ -122,7 +127,7 @@ img:hover{
   /* infoWindow */
 
   .imgWrapper{
-    height: 280px;
+    height: 290px;
     width: 170px;
     display: grid;
     grid-template-columns: 80px 80px;
