@@ -76,6 +76,7 @@ import ReactDOM from 'react-dom';
 				if (!(allowedBounds.contains(this.map.getCenter()))) {
 					//limiting panning on the map to the region's bounds
           this.map.panTo(region.center)
+          this.map.setZoom(region.zoom)
 				} 
       });
       
