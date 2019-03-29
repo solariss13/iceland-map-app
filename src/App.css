@@ -2,15 +2,20 @@
 
 
 html, body {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center;
   text-align: center;
   background-color: rgba(99, 196, 192, 0.7);
+  overflow: hidden;
 }
 
 h1 {
@@ -22,19 +27,51 @@ h1 {
 
 /* homepage */
 .containerHP {
+  height: 100vh;
   display: grid;
-  grid-template-rows:  10vh 80vh;
-  align-items: center;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto;
+  align-items: center
 }
 
-.regionName {
-  margin-top: 5vh;
+.row1 {
+  height: 30px;
+  margin-top: 3vh;
 }
 
 svg {
   height: auto;
-  width: 55% ;
-  margin-top: 10vh;
+  width: 50vw;
+}
+
+.logo {
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.githubLogo {
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  object-fit: contain;
+  border-radius: none;
+  transition: 700ms;
+}
+
+.facebookLogo {
+  height: 50px;
+  width: 50px;
+  padding: 5px;
+  object-fit: contain;
+  border-radius: none;
+  transition: 700ms;
+}
+
+.githubLogo:hover, .facebookLogo:hover {
+  transform: scale(1.2);
+  border: none
 }
 
 .mapPaths {
@@ -45,15 +82,17 @@ svg {
   stroke-width: 0.5 ;
 }
 
+/* /regionsDetails */
 .containerMap {
   height: 100vh;
   display: grid;
-  align-content: space-between;
+  overflow: visible;
 }
 
 .btn-go-back, .btn-add-marker {
   height: auto;
   width: auto;
+  margin-bottom: auto;
   background-color: rgb(244, 237, 237);
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
@@ -80,9 +119,18 @@ svg {
   box-shadow: 0px 10px 7px 10px rgb(104, 170, 167);
   border: 5px solid rgb(34, 147, 94);
   border-radius: 20px;
-  position: initial;
 }
+
 /* infoWindow */
+.markerName {
+  grid-column: 1/4;
+  grid-row: 1;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-size: medium;
+  font-weight: lighter;
+}
+
 img {
   height: 80px;
   width: 100%;
@@ -106,19 +154,23 @@ img:hover {
   align-items: center;
 }
 
-.markerName {
-  grid-column: 1/4;
-  grid-row: 1;
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  font-size: medium;
-  font-weight: lighter;
-}
+/* ------------------------------------------------------------- */
 
+/* row1 */
+@media (max-width: 670px) { .row1 { margin-bottom: 10vh; } }
 
-@media (max-width: 900px) {
-  svg {
-    width: 100% ;
+/* svg */
+@media (min-width: 1125px) { svg { width: 50vw; } }
+@media (max-width: 1125px) { svg { width: 60vw; } }
+@media (max-width: 1050px) { svg { width: 65vw; } }
+@media (max-width: 980px) { svg { width: 70vw; } }
+@media (max-width: 870px) { svg { width: 80vw; } }
+
+/* logo */
+@media (max-width: 460px) { 
+  .githubLogo, .facebookLogo { 
+    height: 42px; 
+    width: 42px;
   }
 }
 
@@ -180,11 +232,5 @@ img:hover {
     font-style: normal;
     font-size: medium;
     font-weight: lighter;
-  }
-}
-
-@media (max-height: 550px) {
-  .googleMap{
-    top: 43px !important;
   }
 }

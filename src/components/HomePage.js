@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import GithubLogo from './GithubLogo';
+import FacebookLogo from './FacebookLogo';
 import SvgMap from './SvgMap';
 
 
@@ -23,23 +25,26 @@ class HomePage extends Component {
   e.target.setAttribute('opacity', '1');
  }
 
-
   render() {
 		return (
-			<div className="containerHP">
-        <div className="regionName">
-          <h1 className="text">
+      <div className="containerHP">
+        <div className="row1">
+          <h1>
             {this.state.currentRegion}
           </h1>
         </div>
-				<div>
+        <div>
           <SvgMap 
             regionOnClick={this.regionOnClick}
             hoverOver={this.hoverOver}
             hoverOut={this.hoverOut}
           />
         </div>
-			</div>
+        <div className="logo" >
+            <GithubLogo />
+            <FacebookLogo />
+        </div>
+      </div>
 		)
   }
 }

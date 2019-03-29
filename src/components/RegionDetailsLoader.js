@@ -109,7 +109,7 @@ class RegionsDetailsLoader extends React.Component {
             />
           </Map>
         </div>
-        <div>
+        <div className="buttons">
           <button 
             className="btn-go-back"
             onClick={this.onClickGoBackBtn}

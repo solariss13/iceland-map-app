@@ -90,11 +90,7 @@ import ReactDOM from 'react-dom';
 	render() {
 		const style = {
       width: '90vw',
-      height: '85vh',
-      marginLeft: '5vw',
-      marginRight: '5vw',
-      position: 'absolute',
-      top: '8vh'
+      height: '80vh'
     }
 		return (
 			<div className="googleMap" ref='map' style={style}>
