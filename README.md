@@ -17,5 +17,4 @@ The built process of the project can be separated in parts:
 
 After reaching the last step in completing the app it became clear that it's not possible to use Instagram API and instead of that I had to resolve fetching images with Customer Search API provided by Google.
 
-There's definitely a need to clean up the code & improve safety.
 There are few styling improvements to add in mobile view.
