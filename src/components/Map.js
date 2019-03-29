@@ -75,7 +75,8 @@ import ReactDOM from 'react-dom';
 				//if dragend is outside the allowed boundaries
 				if (!(allowedBounds.contains(this.map.getCenter()))) {
 					//limiting panning on the map to the region's bounds
-					this.map.panTo(region.center);
+          this.map.panTo(region.center)
+          this.map.zoom(region.zoom)
 				} 
       });
       
