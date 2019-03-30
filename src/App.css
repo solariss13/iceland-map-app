@@ -205,10 +205,6 @@ img:hover {
 }
 /* for screens smaller than width = 380px */
 @media (max-width: 370px) {
-  html, body {
-    height: 95vh;
-    width: 100vw;
-  }
   h1 {
     font-size: 1.3rem;
   }
