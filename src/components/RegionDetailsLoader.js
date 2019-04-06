@@ -123,7 +123,6 @@ class RegionsDetailsLoader extends React.Component {
             Add marker
           </button>
         </div>
-        <div className="space-filler"></div>
       </div>
     )
   }
