@@ -1,4 +1,5 @@
 import React from 'react';
+import Div100vh from 'react-div-100vh';
 import Map from './Map';
 import Marker from './Marker';
 import InfoWindow from './InfoWindow';
@@ -89,41 +90,43 @@ class RegionsDetailsLoader extends React.Component {
   render() {
     const currentRegion = this.props.match.params.handle;
     return (
-      <div className="containerMap" >
-        <div>
-          <h1>{currentRegion}</h1>
+      <Div100vh>
+        <div className="containerMap" >
+          <div>
+            <h1>{currentRegion}</h1>
+          </div>
+          <div>
+            <Map 
+              onClick={this.onMapClick}
+              google={this.props.google} 
+              region={currentRegion}
+            >
+              <Marker 
+                onClick={this.onMarkerClick}
+              />
+              <InfoWindow
+                images={this.state.strImages}
+                marker={this.state.activeMarker}
+                visible={this.state.showingInfoWindow}
+              />
+            </Map>
+          </div>
+          <div className="buttons">
+            <button 
+              className="btn-go-back"
+              onClick={this.onClickGoBackBtn}
+            >
+              Go back
+            </button>
+            <button 
+              className="btn-add-marker"
+              onClick={this.onClickAddMarkerBtn}
+            >
+              Add marker
+            </button>
+          </div>
         </div>
-        <div>
-          <Map 
-            onClick={this.onMapClick}
-            google={this.props.google} 
-            region={currentRegion}
-          >
-            <Marker 
-              onClick={this.onMarkerClick}
-            />
-            <InfoWindow
-              images={this.state.strImages}
-              marker={this.state.activeMarker}
-              visible={this.state.showingInfoWindow}
-            />
-          </Map>
-        </div>
-        <div className="buttons">
-          <button 
-            className="btn-go-back"
-            onClick={this.onClickGoBackBtn}
-          >
-            Go back
-          </button>
-          <button 
-            className="btn-add-marker"
-            onClick={this.onClickAddMarkerBtn}
-          >
-            Add marker
-          </button>
-        </div>
-      </div>
+      </Div100vh>
     )
   }
 }
