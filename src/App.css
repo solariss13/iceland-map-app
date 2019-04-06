@@ -27,8 +27,7 @@ h1 {
 
 /* homepage */
 .containerHP {
-  /* height: 100vh;  */
-  height: calc(var(--vh, 1vh) * 100);
+  height: 100vh; 
   margin: 0 auto;
   
   display: grid;
@@ -88,7 +87,6 @@ svg {
 /* /regionsDetails */
 .containerMap {
   height: 80vh;
-  height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   display: grid;
   overflow: visible;
