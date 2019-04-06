@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Div100vh from 'react-div-100vh';
 import GithubLogo from './GithubLogo';
 import FacebookLogo from './FacebookLogo';
 import SvgMap from './SvgMap';
@@ -27,24 +28,26 @@ class HomePage extends Component {
 
   render() {
 		return (
-      <div className="containerHP">
-        <div className="row1">
-          <h1>
-            {this.state.currentRegion}
-          </h1>
+      <Div100vh>
+        <div className="containerHP">
+          <div className="row1">
+            <h1>
+              {this.state.currentRegion}
+            </h1>
+          </div>
+          <div>
+            <SvgMap 
+              regionOnClick={this.regionOnClick}
+              hoverOver={this.hoverOver}
+              hoverOut={this.hoverOut}
+            />
+          </div>
+          <div className="logo" >
+              <GithubLogo />
+              <FacebookLogo />
+          </div>
         </div>
-        <div>
-          <SvgMap 
-            regionOnClick={this.regionOnClick}
-            hoverOver={this.hoverOver}
-            hoverOut={this.hoverOut}
-          />
-        </div>
-        <div className="logo" >
-            <GithubLogo />
-            <FacebookLogo />
-        </div>
-      </div>
+      </Div100vh>
 		)
   }
 }
