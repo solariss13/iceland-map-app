@@ -86,7 +86,7 @@ svg {
 
 /* /regionsDetails */
 .containerMap {
-  height: 80vh;
+  height: 100vh;
   margin: 0 auto;
   display: grid;
   overflow: visible;
