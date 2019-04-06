@@ -89,6 +89,8 @@ svg {
   height: 100vh;
   margin: 0 auto;
   display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto auto auto;
   overflow: visible;
 }
 
