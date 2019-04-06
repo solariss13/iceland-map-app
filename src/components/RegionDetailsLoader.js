@@ -90,7 +90,6 @@ class RegionsDetailsLoader extends React.Component {
     const currentRegion = this.props.match.params.handle;
     return (
       <div className="containerMap" >
-      <div className="space-filler"></div>
         <div>
           <h1>{currentRegion}</h1>
         </div>
