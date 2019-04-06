@@ -87,7 +87,7 @@ svg {
 
 /* /regionsDetails */
 .containerMap {
-  /* height: 100vh; */
+  height: 80vh;
   height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
   display: grid;
