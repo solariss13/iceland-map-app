@@ -84,6 +84,9 @@ svg {
   stroke-width: 0.5 ;
 }
 
+.space-filler {
+  height: 5vh;
+}
 /* /regionsDetails */
 .containerMap {
   height: 100vh;
