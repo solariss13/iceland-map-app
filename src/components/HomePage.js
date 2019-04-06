@@ -44,6 +44,7 @@ class HomePage extends Component {
             <GithubLogo />
             <FacebookLogo />
         </div>
+        <div className="space-filler"></div>
       </div>
 		)
   }
