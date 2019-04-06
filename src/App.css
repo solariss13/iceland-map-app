@@ -30,7 +30,7 @@ h1 {
   height: 100vh;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 10% auto 20%;
+  grid-template-rows: 10% auto 30%;
   align-items: center
 }
 
