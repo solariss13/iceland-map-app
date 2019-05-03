@@ -1,52 +1,48 @@
-import React, { Component } from 'react';
-import GithubLogo from './GithubLogo';
-import FacebookLogo from './FacebookLogo';
-import SvgMap from './SvgMap';
-
+import React, { Component } from "react";
+import GithubLogo from "./GithubLogo/GithubLogo";
+import FacebookLogo from "./FacebookLogo/FacebookLogo";
+import SvgMap from "./SvgMap/SvgMap";
 
 class HomePage extends Component {
- 
-	state={
-	  currentRegion: '',
-	  clickedRegion: '',
-	}
+	state = {
+		currentRegion: "",
+		clickedRegion: ""
+	};
 
- regionOnClick = (e) => {
-  this.setState({ clickedRegion: e.target.id });
- }
+	regionOnClick = e => {
+		this.setState({ clickedRegion: e.target.id });
+	};
 
- hoverOver = (e) => {
-  this.setState({ currentRegion: e.target.id });
-  e.target.setAttribute('opacity', '0.7');
- }
+	hoverOver = e => {
+		this.setState({ currentRegion: e.target.id });
+		e.target.setAttribute("opacity", "0.7");
+	};
 
- hoverOut = (e) => {
-  this.setState({ currentRegion: '' });
-  e.target.setAttribute('opacity', '1');
- }
+	hoverOut = e => {
+		this.setState({ currentRegion: "" });
+		e.target.setAttribute("opacity", "1");
+	};
 
-  render() {
+	render() {
 		return (
-      <div className="containerHP">
-        <div className="row1">
-          <h1>
-            {this.state.currentRegion}
-          </h1>
-        </div>
-        <div>
-          <SvgMap 
-            regionOnClick={this.regionOnClick}
-            hoverOver={this.hoverOver}
-            hoverOut={this.hoverOut}
-          />
-        </div>
-        <div className="logo" >
-            <GithubLogo />
-            <FacebookLogo />
-        </div>
-      </div>
-		)
-  }
+			<div className='homepage-container'>
+				<div className='homepage-header'>
+					<h1>{this.state.currentRegion}</h1>
+				</div>
+				<div className='homepage-svgmap'>
+					<SvgMap
+						regionOnClick={this.regionOnClick}
+						hoverOver={this.hoverOver}
+						hoverOut={this.hoverOut}
+					/>
+				</div>
+				<div className='homepage-logo'>
+					<GithubLogo />
+					<FacebookLogo />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default HomePage;

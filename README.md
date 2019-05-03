@@ -1,6 +1,6 @@
-**All of the goals achieved!** 
+**Adding markers not valid due to implemantation of popup components**
 
-App available at: 
+App available at:
 https://iceland-map-app.herokuapp.com/
 
 App description:
@@ -8,10 +8,11 @@ App description:
 I'm creating an interactive map of Iceland!
 
 The built process of the project can be separated in parts:
-- displaying map of Iceland divided by regions & displaying region's name when hovered over 
-- displaying detailed map of chosen region 
+
+- displaying map of Iceland divided by regions & displaying region's name when hovered over
+- displaying detailed map of chosen region
 - displaying marked spots with interesting places on the map & showing photos of these places taken from Google Images results related to these places
--option for users to add markers on the map 
+  -option for users to add markers on the map
 
 **Issues**:
 
