@@ -4,6 +4,8 @@ import "./Popup2.css";
 class Popup2 extends Component {
 	hidePopup = () => {
 		this.container.setAttribute("class", "hidePopup2");
+		//delay time based on animation duration in Popup2.css
+		setTimeout(() => this.props.toggleVisibility(), 1000);
 	};
 
 	componentDidUpdate() {

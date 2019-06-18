@@ -92,7 +92,7 @@
 	width: 100%;
 	background-color: rgba(0, 0, 0, 0.85);
 	z-index: 10;
-	animation: pull-up-bg 0.4s ease 1s forwards;
+	animation: pull-up-bg 0.4s ease 0.8s forwards;
 }
 
 .hidePopup2 > * {

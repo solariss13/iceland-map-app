@@ -98,6 +98,10 @@ class RegionsDetailsLoader extends React.Component {
 		});
 	};
 
+	togglePopup2visibility = () => {
+		this.setState({ popup2visible: false });
+	};
+
 	render() {
 		const currentRegion = this.props.match.params.handle;
 		return (
@@ -140,6 +144,7 @@ class RegionsDetailsLoader extends React.Component {
 						newMarkerPosition={this.state.newMarkerPosition}
 						currentRegion={currentRegion}
 						popup2visible={this.state.popup2visible}
+						toggleVisibility={this.togglePopup2visibility}
 					/>
 				</div>
 			</div>
@@ -148,5 +153,6 @@ class RegionsDetailsLoader extends React.Component {
 }
 
 export default GoogleApiWrapper({
+	//put on the server side
 	apiKey: "AIzaSyC0fntjhAf5ntQN8orIvSDuxiJ6sHwV25w"
 })(RegionsDetailsLoader);
