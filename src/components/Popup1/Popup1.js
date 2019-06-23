@@ -9,10 +9,15 @@ class Popup1 extends Component {
 	};
 
 	componentDidUpdate() {
-		this.props.addNewMarker
-			? this.container.setAttribute("class", "Popup-container")
-			: this.container.setAttribute("class", "Popup-container-hidden");
+		!this.props.addNewMarker ||
+		localStorage.getItem("popup visibility") === "hidden"
+			? this.container.setAttribute("class", "Popup-container-hidden")
+			: this.container.setAttribute("class", "Popup-container");
 	}
+
+	inputChecked = () => {
+		this.props.updateLocalStorage("hidden");
+	};
 
 	render() {
 		return (
@@ -28,11 +33,21 @@ class Popup1 extends Component {
 							src={gmap_marker}
 						/>
 					</div>
-					<div className='Popup-footer' onClick={this.hidePopup}>
+					<div className='Popup-footer'>
 						<div className='Popup-text-box'>
 							<h1 className='Popup-text'>
 								Click on the map to point the location of the new marker.
 							</h1>
+							<div className='Popup-checkbox'>
+								<input
+									id='popup-id'
+									type='checkbox'
+									onChange={this.inputChecked}
+								/>
+								<label htmlFor='popup-id' className='Popup-label'>
+									Do not show this again
+								</label>
+							</div>
 						</div>
 
 						<div className='Popup-arrowup-box'>
@@ -41,6 +56,7 @@ class Popup1 extends Component {
 								title='Hide the info box!'
 								alt='arrow-up'
 								src={angle_arrow_up}
+								onClick={this.hidePopup}
 							/>
 						</div>
 					</div>

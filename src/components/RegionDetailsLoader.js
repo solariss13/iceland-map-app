@@ -14,12 +14,9 @@ class RegionsDetailsLoader extends React.Component {
 		strImages: [],
 		addNewMarker: false,
 		newMarkerPosition: {},
+
 		popup2visible: false
 	};
-
-	componentDidMount() {
-		console.log("mount");
-	}
 
 	createNewMarker = (currentRegion, newMarkerPosition, newMarkerName) => {
 		fetch(`https://iceland-map-app-api.herokuapp.com/region/${currentRegion}`, {
@@ -98,6 +95,10 @@ class RegionsDetailsLoader extends React.Component {
 		});
 	};
 
+	updateLocalStorage = (visibility = "visible") => {
+		localStorage.setItem("popup visibility", visibility);
+	};
+
 	togglePopup2visibility = () => {
 		this.setState({ popup2visible: false });
 	};
@@ -138,7 +139,12 @@ class RegionsDetailsLoader extends React.Component {
 							Add marker
 						</button>
 					</div>
-					<Popup1 addNewMarker={this.state.addNewMarker} />
+					{localStorage.getItem("pop") ? (
+						<Popup1
+							addNewMarker={this.state.addNewMarker}
+							updateLocalStorage={this.updateLocalStorage}
+						/>
+					) : null}
 					<Popup2
 						createNewMarker={this.createNewMarker}
 						newMarkerPosition={this.state.newMarkerPosition}
